@@ -25,4 +25,17 @@ router.post('/', (req, res) => {
     }
 });
 
+router.delete('/:id', (req, res) => {
+    const id = req.params.id;
+    readFromFile('./db/db.json')
+        .then((data) => JSON.parse(data))
+        .then((json) => {
+            const results = json.filter((note) => note.id !== id);
+
+            writeToFile('./db/db.json', results);
+
+            res.json('Note vanquished');
+        });
+});
+
 module.exports = router
