@@ -1,11 +1,14 @@
+// Imports
 const router = require('express').Router();
 const { v4: uuidv4 } = require('uuid')
 const { readAndAppend, readFromFile, writeToFile } = require('../helpers/fsUtils.js');
 
+// Endpoint for all notes
 router.get('/', (req, res) => {
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
+// Endpoint for creating a new note
 router.post('/', (req, res) => {
     console.log(req.body);
 
@@ -25,6 +28,7 @@ router.post('/', (req, res) => {
     }
 });
 
+// Endpoint for deleting a note by ID
 router.delete('/:id', (req, res) => {
     const id = req.params.id;
     readFromFile('./db/db.json')
@@ -38,4 +42,5 @@ router.delete('/:id', (req, res) => {
         });
 });
 
+// Exports
 module.exports = router
