@@ -1,12 +1,12 @@
 {
-  "name": "note-taker",
+  "name": "express-note-taker",
   "version": "1.0.0",
-  "description": "",
+  "description": "UConn Bootcamp Chapter 11 Express Challenge",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Daelen Wall",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4"
